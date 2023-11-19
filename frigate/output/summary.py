@@ -13,6 +13,7 @@ from frigate.log import LogPipe
 logger = logging.getLogger(__name__)
 
 SUMMARY_OUTPUT_FPS = 5
+SUMMARY_SEGMENT_DURATION = 30
 
 
 class FFMpegConverter(threading.Thread):
@@ -40,7 +41,7 @@ class FFMpegConverter(threading.Thread):
             "-video_size",
             f"{config.detect.width}x{config.detect.height}",
             "-r",
-            f"{SUMMARY_OUTPUT_FPS}",
+            str(SUMMARY_OUTPUT_FPS),
             "-i",
             "pipe:",
             "-c:v",
@@ -60,7 +61,7 @@ class FFMpegConverter(threading.Thread):
             "-segment_atclocktime",
             "1",
             "-segment_time",
-            "30",
+            str(SUMMARY_SEGMENT_DURATION),
             "-reset_timestamps",
             "1",
             "-strftime",
