@@ -138,6 +138,9 @@ def output_frames(
     for jsmpeg in jsmpeg_cameras.values():
         jsmpeg.stop()
 
+    for summary in summary_recorders.values():
+        summary.stop()
+
     if birdseye is not None:
         birdseye.stop()
 

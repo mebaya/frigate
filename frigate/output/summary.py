@@ -1,5 +1,6 @@
 """Handle outputting low res / fps summary segments from decoded frames."""
 
+import datetime
 import logging
 import multiprocessing as mp
 import queue
@@ -10,6 +11,8 @@ from frigate.config import CameraConfig
 from frigate.log import LogPipe
 
 logger = logging.getLogger(__name__)
+
+SUMMARY_OUTPUT_FPS = 5
 
 
 class FFMpegConverter(threading.Thread):
@@ -36,20 +39,36 @@ class FFMpegConverter(threading.Thread):
             "yuv420p",
             "-video_size",
             f"{config.detect.width}x{config.detect.height}",
+            "-r",
+            f"{SUMMARY_OUTPUT_FPS}",
             "-i",
             "pipe:",
-            "-f",
-            "mpegts",
             "-c:v",
             "libx264",
+            "-g",
+            "50",
             "-bf",
             "0",
+            "-preset:v",
+            "ultrafast",
             "-fps_mode",
             "vfr",
             "-r",
             "5",
-            "/media/frigate/summary.ts",
+            "-f",
+            "segment",
+            "-segment_atclocktime",
+            "1",
+            "-segment_time",
+            "30",
+            "-reset_timestamps",
+            "1",
+            "-strftime",
+            "1",
+            f"/media/frigate/summaries/{self.camera}/%Y%m%d%H%M%S%z.ts",
         ]
+
+        logger.error(f"Command is {' '.join(ffmpeg_cmd)}")
 
         self.process = sp.Popen(
             ffmpeg_cmd,
@@ -90,6 +109,7 @@ class SummaryRecorder:
         self.config = config
         self.input = queue.Queue(maxsize=config.detect.fps)
         self.logpipe = LogPipe(f"ffmpeg.{config.name}.summary")
+        self.last_output_time = 0
         self.converter = FFMpegConverter(
             config,
             self.input,
@@ -104,13 +124,24 @@ class SummaryRecorder:
         motion_boxes: list[list[int]],
     ) -> bool:
         """Decide if this frame should be added to summary."""
+        now = datetime.datetime.now().timestamp()
 
         # send frame if a non-stationary object is in a zone
-        if any((len(o["current_zones"]) > 0 and not o["stationary"]) for o in current_tracked_objects):
+        if any(
+            (len(o["current_zones"]) > 0 and not o["stationary"])
+            for o in current_tracked_objects
+        ):
+            self.last_output_time = now
             return True
 
         # TODO think of real motion box logic to use
         if len(motion_boxes) % 2 == 1:
+            self.last_output_time = now
+            return True
+
+        # make sure at least 5 frames are written every second
+        if (now - self.last_output_time) > 1 / SUMMARY_OUTPUT_FPS:
+            self.last_output_time = now
             return True
 
         return False
@@ -128,5 +159,5 @@ class SummaryRecorder:
                 # drop frames if queue is full
                 pass
 
-    def exit(self) -> None:
+    def stop(self) -> None:
         self.converter.join()
