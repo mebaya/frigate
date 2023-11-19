@@ -114,7 +114,9 @@ def output_frames(
             )
 
         # send frames for low fps recording
-        summary_recorders[camera].write_data(current_tracked_objects, motion_boxes, frame)
+        summary_recorders[camera].write_data(
+            current_tracked_objects, motion_boxes, frame
+        )
 
         # delete frames after they have been used for output
         if camera in previous_frames:

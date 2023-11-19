@@ -37,6 +37,7 @@ class FFMpegConverter(threading.Thread):
             input=f"-f rawvideo -pix_fmt yuv420p -video_size {config.detect.width}x{config.detect.height} -r {SUMMARY_OUTPUT_FPS} -i pipe:",
             output=f"-g {SUMMARY_OUTPUT_FPS} -bf 0 -fps_mode vfr -r 5 -f segment -segment_atclocktime 1 -segment_time {SUMMARY_SEGMENT_DURATION} -reset_timestamps 1 -strftime 1 /media/frigate/summaries/{self.camera}/%Y%m%d%H%M%S%z.ts",
         )
+        # TODO figure out file structure and where files are saved
 
         logger.error(f"Command is {ffmpeg_cmd}")
 
