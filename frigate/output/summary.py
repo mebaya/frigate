@@ -14,7 +14,7 @@ from frigate.log import LogPipe
 logger = logging.getLogger(__name__)
 
 SUMMARY_OUTPUT_FPS = 5
-SUMMARY_SEGMENT_DURATION = 10
+SUMMARY_SEGMENT_DURATION = 60
 
 
 class FFMpegConverter(threading.Thread):
@@ -32,10 +32,11 @@ class FFMpegConverter(threading.Thread):
         self.logpipe = logpipe
         self.stop_event = stop_event
 
+        # write a summary at fps and 1 key frame per segment
         ffmpeg_cmd = parse_preset_hardware_acceleration_encode(
             config.ffmpeg.hwaccel_args,
             input=f"-f rawvideo -pix_fmt yuv420p -video_size {config.detect.width}x{config.detect.height} -r {SUMMARY_OUTPUT_FPS} -i pipe:",
-            output=f"-g {SUMMARY_OUTPUT_FPS} -bf 0 -fps_mode vfr -r 5 -f segment -segment_atclocktime 1 -segment_time {SUMMARY_SEGMENT_DURATION} -reset_timestamps 1 -strftime 1 /media/frigate/summaries/{self.camera}/%Y%m%d%H%M%S%z.ts",
+            output=f"-g {SUMMARY_OUTPUT_FPS * SUMMARY_SEGMENT_DURATION} -bf 0 -fps_mode vfr -r 5 -f segment -segment_atclocktime 1 -segment_time {SUMMARY_SEGMENT_DURATION} -reset_timestamps 1 -strftime 1 /media/frigate/summaries/{self.camera}/%Y%m%d%H%M%S%z.ts",
         )
         # TODO figure out file structure and where files are saved
 
