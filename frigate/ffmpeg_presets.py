@@ -114,6 +114,21 @@ PRESETS_HW_ACCEL_ENCODE_TIMELAPSE = {
     "default": "ffmpeg -hide_banner {0} -c:v libx264 -preset:v ultrafast -tune:v zerolatency {1}",
 }
 
+PRESETS_HW_ACCEL_ENCODE_SUMMARY = {
+    "preset-rpi-64-h264": "ffmpeg -hide_banner {0} -c:v h264_v4l2m2m -pix_fmt yuv420p {1}",
+    "preset-rpi-64-h265": "ffmpeg -hide_banner {0} -c:v hevc_v4l2m2m -pix_fmt yuv420p {1}",
+    "preset-vaapi": "ffmpeg -hide_banner -hwaccel_device {2} {0} -c:v h264_vaapi {1}",
+    "preset-intel-qsv-h264": "ffmpeg -hide_banner {0} -c:v h264_qsv -profile:v high -level:v 4.1 -async_depth:v 1 {1}",
+    "preset-intel-qsv-h265": "ffmpeg -hide_banner {0} -c:v hevc_qsv -profile:v high -level:v 4.1 -async_depth:v 1 {1}",
+    "preset-nvidia-h264": "ffmpeg -hide_banner -hwaccel cuda {0} -c:v h264_nvenc {1}",
+    "preset-nvidia-h265": "ffmpeg -hide_banner -hwaccel cuda {0} -c:v hevc_nvenc {1}",
+    "preset-jetson-h264": "ffmpeg -hide_banner {0} -c:v h264_nvmpi -profile high {1}",
+    "preset-jetson-h265": "ffmpeg -hide_banner {0} -c:v hevc_nvmpi -profile high {1}",
+    "preset-rk-h264": "ffmpeg -hide_banner {0} -c:v h264_rkmpp_encoder -profile high {1}",
+    "preset-rk-h265": "ffmpeg -hide_banner {0} -c:v hevc_rkmpp_encoder -profile high {1}",
+    "default": "ffmpeg -hide_banner {0} -c:v libx264 -preset:v ultrafast -tune:v zerolatency {1}",
+}
+
 
 def parse_preset_hardware_acceleration_decode(
     arg: Any,
@@ -153,6 +168,7 @@ def parse_preset_hardware_acceleration_scale(
 
 class EncodeTypeEnum(str, Enum):
     birdseye = "birdseye"
+    summary = "summary"
     timelapse = "timelapse"
 
 
@@ -162,6 +178,8 @@ def parse_preset_hardware_acceleration_encode(
     """Return the correct scaling preset or default preset if none is set."""
     if type == EncodeTypeEnum.birdseye:
         arg_map = PRESETS_HW_ACCEL_ENCODE_BIRDSEYE
+    elif type == EncodeTypeEnum.summary:
+        arg_map = PRESETS_HW_ACCEL_ENCODE_SUMMARY
     elif type == EncodeTypeEnum.timelapse:
         arg_map = PRESETS_HW_ACCEL_ENCODE_TIMELAPSE
 

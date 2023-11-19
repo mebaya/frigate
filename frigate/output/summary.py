@@ -8,12 +8,13 @@ import subprocess as sp
 import threading
 
 from frigate.config import CameraConfig
+from frigate.ffmpeg_presets import parse_preset_hardware_acceleration_encode
 from frigate.log import LogPipe
 
 logger = logging.getLogger(__name__)
 
 SUMMARY_OUTPUT_FPS = 5
-SUMMARY_SEGMENT_DURATION = 30
+SUMMARY_SEGMENT_DURATION = 10
 
 
 class FFMpegConverter(threading.Thread):
@@ -31,48 +32,16 @@ class FFMpegConverter(threading.Thread):
         self.logpipe = logpipe
         self.stop_event = stop_event
 
-        ffmpeg_cmd = [
-            "ffmpeg",
-            "-hide_banner",
-            "-f",
-            "rawvideo",
-            "-pix_fmt",
-            "yuv420p",
-            "-video_size",
-            f"{config.detect.width}x{config.detect.height}",
-            "-r",
-            str(SUMMARY_OUTPUT_FPS),
-            "-i",
-            "pipe:",
-            "-c:v",
-            "libx264",
-            "-g",
-            "50",
-            "-bf",
-            "0",
-            "-preset:v",
-            "ultrafast",
-            "-fps_mode",
-            "vfr",
-            "-r",
-            "5",
-            "-f",
-            "segment",
-            "-segment_atclocktime",
-            "1",
-            "-segment_time",
-            str(SUMMARY_SEGMENT_DURATION),
-            "-reset_timestamps",
-            "1",
-            "-strftime",
-            "1",
-            f"/media/frigate/summaries/{self.camera}/%Y%m%d%H%M%S%z.ts",
-        ]
+        ffmpeg_cmd = parse_preset_hardware_acceleration_encode(
+            config.ffmpeg.hwaccel_args,
+            input=f"-f rawvideo -pix_fmt yuv420p -video_size {config.detect.width}x{config.detect.height} -r {SUMMARY_OUTPUT_FPS} -i pipe:",
+            output=f"-g {SUMMARY_OUTPUT_FPS} -bf 0 -fps_mode vfr -r 5 -f segment -segment_atclocktime 1 -segment_time {SUMMARY_SEGMENT_DURATION} -reset_timestamps 1 -strftime 1 /media/frigate/summaries/{self.camera}/%Y%m%d%H%M%S%z.ts",
+        )
 
-        logger.error(f"Command is {' '.join(ffmpeg_cmd)}")
+        logger.error(f"Command is {ffmpeg_cmd}")
 
         self.process = sp.Popen(
-            ffmpeg_cmd,
+            ffmpeg_cmd.split(" "),
             stdout=sp.DEVNULL,
             stderr=logpipe,
             stdin=sp.PIPE,
