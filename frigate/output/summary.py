@@ -8,13 +8,16 @@ import subprocess as sp
 import threading
 
 from frigate.config import CameraConfig
-from frigate.ffmpeg_presets import parse_preset_hardware_acceleration_encode
+from frigate.ffmpeg_presets import (
+    EncodeTypeEnum,
+    parse_preset_hardware_acceleration_encode,
+)
 from frigate.log import LogPipe
 
 logger = logging.getLogger(__name__)
 
-SUMMARY_OUTPUT_FPS = 5
-SUMMARY_SEGMENT_DURATION = 60
+SUMMARY_OUTPUT_FPS = 1
+SUMMARY_SEGMENT_DURATION = 300
 
 
 class FFMpegConverter(threading.Thread):
@@ -32,11 +35,15 @@ class FFMpegConverter(threading.Thread):
         self.logpipe = logpipe
         self.stop_event = stop_event
 
-        # write a summary at fps and 1 key frame per segment
+        out_height = 160
+        out_width = int((config.detect.width / config.detect.height) * out_height)
+
+        # write a summary at fps and 1 key frame per minute
         ffmpeg_cmd = parse_preset_hardware_acceleration_encode(
             config.ffmpeg.hwaccel_args,
             input=f"-f rawvideo -pix_fmt yuv420p -video_size {config.detect.width}x{config.detect.height} -r {SUMMARY_OUTPUT_FPS} -i pipe:",
-            output=f"-g {SUMMARY_OUTPUT_FPS * SUMMARY_SEGMENT_DURATION} -bf 0 -fps_mode vfr -r 5 -f segment -segment_atclocktime 1 -segment_time {SUMMARY_SEGMENT_DURATION} -reset_timestamps 1 -strftime 1 /media/frigate/summaries/{self.camera}/%Y%m%d%H%M%S%z.ts",
+            output=f"-g {SUMMARY_OUTPUT_FPS * 60} -s {out_width}x{out_height} -bf 0 -b 9120 -fps_mode cfr -r {SUMMARY_OUTPUT_FPS} -f segment -segment_format mpegts -segment_atclocktime 1 -segment_time {SUMMARY_SEGMENT_DURATION} -reset_timestamps 1 -strftime 1 /media/frigate/summaries/{self.camera}/%Y%m%d%H%M%S%z.ts",
+            type=EncodeTypeEnum.summary,
         )
         # TODO figure out file structure and where files are saved
 
@@ -98,6 +105,10 @@ class SummaryRecorder:
         """Decide if this frame should be added to summary."""
         now = datetime.datetime.now().timestamp()
 
+        # limit output to 1 fps
+        if (now - self.last_output_time) < 1:
+            return False
+
         # send frame if a non-stationary object is in a zone
         if any(
             (len(o["current_zones"]) > 0 and not o["stationary"])
@@ -108,11 +119,6 @@ class SummaryRecorder:
 
         # TODO think of real motion box logic to use
         if len(motion_boxes) % 2 == 1:
-            self.last_output_time = now
-            return True
-
-        # make sure at least 5 frames are written every second
-        if (now - self.last_output_time) > 1 / SUMMARY_OUTPUT_FPS:
             self.last_output_time = now
             return True
 

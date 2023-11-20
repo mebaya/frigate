@@ -126,7 +126,7 @@ PRESETS_HW_ACCEL_ENCODE_SUMMARY = {
     "preset-jetson-h265": "ffmpeg -hide_banner {0} -c:v hevc_nvmpi -profile high {1}",
     "preset-rk-h264": "ffmpeg -hide_banner {0} -c:v h264_rkmpp_encoder -profile high {1}",
     "preset-rk-h265": "ffmpeg -hide_banner {0} -c:v hevc_rkmpp_encoder -profile high {1}",
-    "default": "ffmpeg -hide_banner {0} -c:v libx264 -preset:v ultrafast -tune:v zerolatency {1}",
+    "default": "ffmpeg -hide_banner {0} -c:v libx264 -preset:v ultrafast {1}",
 }
 
 
