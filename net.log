@@ -1,0 +1,361 @@
+13:14:51.460514 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:14:51.490145 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:14:51.496497 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:14:51.716477 IP6 :: > ff02::1:ff90:adef: ICMP6, neighbor solicitation, who has fe80::876d:6757:e390:adef, length 32
+13:14:52.476494 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:14:52.732594 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:14:52.748486 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:14:52.956787 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:14:53.180456 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:14:53.340443 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:14:53.489997 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:14:53.565661 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:14:55.728814 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:14:56.438699 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:14:56.804269 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:15:00.513207 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:15:03.482000 IP6 fe80::3ac4:e8ff:fe20:575d > ip6-allrouters: ICMP6, router solicitation, length 16
+13:15:04.349335 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:15:05.471739 IP 192.168.1.64.mdns > mdns.mcast.net.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:15:05.472341 IP6 fe80::3ac4:e8ff:fe20:575d.mdns > ff02::fb.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:15:09.162218 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:15:18.171399 ARP, Request who-has 192.168.1.128 tell 192.168.1.73, length 46
+13:15:18.672145 ARP, Request who-has 192.168.1.128 tell 192.168.1.73, length 46
+13:15:19.173145 ARP, Request who-has 192.168.1.128 tell 192.168.1.73, length 46
+13:15:19.519909 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:15:19.674177 ARP, Request who-has 192.168.1.128 tell 192.168.1.73, length 46
+13:15:25.470280 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:15:36.460472 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:15:36.498377 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:15:36.504491 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:15:36.860494 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:15:37.084495 IP6 :: > ff02::1:ff90:adef: ICMP6, neighbor solicitation, who has fe80::876d:6757:e390:adef, length 32
+13:15:37.218472 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+13:15:37.608476 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+13:15:37.768515 IP6 :: > ff02::1:ff20:575d: ICMP6, neighbor solicitation, who has fe80::3ac4:e8ff:fe20:575d, length 24
+13:15:38.108593 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:15:38.120461 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:15:38.248694 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:15:38.263718 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:15:38.396469 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:15:38.498296 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:15:38.808628 IP6 fe80::3ac4:e8ff:fe20:575d > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+13:15:38.808686 IP6 fe80::3ac4:e8ff:fe20:575d > ip6-allrouters: ICMP6, router solicitation, length 16
+13:15:39.132486 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:15:39.448484 IP6 fe80::3ac4:e8ff:fe20:575d > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+13:15:40.272819 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:15:41.338804 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:15:41.906801 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:15:43.048507 IP6 fe80::3ac4:e8ff:fe20:575d > ip6-allrouters: ICMP6, router solicitation, length 16
+13:15:45.753910 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:15:49.071674 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:15:50.728654 IP6 fe80::3ac4:e8ff:fe20:575d > ip6-allrouters: ICMP6, router solicitation, length 16
+13:15:52.652329 ARP, Request who-has 192.168.1.64 tell 192.168.1.64, length 46
+13:15:54.628550 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:15:54.918757 IP6 fe80::3ac4:e8ff:fe20:575d > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+13:15:55.368752 IP6 fe80::3ac4:e8ff:fe20:575d > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+13:16:02.322001 38:c4:e8:20:57:5d (oui Unknown) > Broadcast, ethertype Unknown (0x8033), length 416: 
+	0x0000:  2101 01f6 0000 0000 0604 0102 f32b 38c4  !............+8.
+	0x0010:  e820 575d c0a8 0140 ffff ffff ffff 0000  ..W]...@........
+	0x0020:  0000 ffff ff00 4243 532d 562d 4549 5034  ......BCS-V-EIP4
+	0x0030:  3456 5352 3332 3032 3230 3330 3341 4157  4VSR320220303AAW
+	0x0040:  524a 3538 3833 3339 3632 0000 0000 0000  RJ58833962......
+	0x0050:  0000 0000 0000 0002 422f 0000 1f40 0000  ........B/...@..
+	0x0060:  0000 0000 0000 5635 2e37 2e32 6275 696c  ......V5.7.2buil
+	0x0070:  6420 3232 3031 3131 0000 0000 0000 0000  d.220111........
+	0x0080:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0090:  0000 0000 0000 5637 2e33 2062 7569 6c64  ......V7.3.build
+	0x00a0:  2032 3131 3231 3400 0000 0000 0000 0000  .211214.........
+	0x00b0:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x00c0:  0000 0000 0000 3139 3730 2d30 312d 3031  ......1970-01-01
+	0x00d0:  2030 323a 3334 3a34 3500 0000 0000 0000  .02:34:45.......
+	0x00e0:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x00f0:  0000 0000 0000 029c 4aff c0a8 0101 0000  ........J.......
+	0x0100:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0110:  0000 0000 0000 0000 0000 0000 0000 004f  ...............O
+	0x0120:  000b 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0130:  0000 0000 0000 0000 0000 0000 0000 0050  ...............P
+	0x0140:  0000 0000 0000 0000 0001 0000 0000 0000  ................
+	0x0150:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0160:  0000 4243 532d 562d 4549 5034 3456 5352  ..BCS-V-EIP44VSR
+	0x0170:  3300 0000 0000 0000 0000 0000 0000 0000  3...............
+	0x0180:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0190:  0000                                     ..
+13:16:02.438780 IP 192.168.1.64 > igmp.mcast.net: igmp v3 report, 1 group record(s)
+13:16:02.454398 ARP, Request who-has 192.168.1.1 tell 192.168.1.64, length 46
+13:16:02.458823 IP6 fe80::3ac4:e8ff:fe20:575d > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+13:16:02.478772 IP 192.168.1.64 > igmp.mcast.net: igmp v3 report, 1 group record(s)
+13:16:02.528822 IP6 fe80::3ac4:e8ff:fe20:575d > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+13:16:02.638788 IP 192.168.1.64 > igmp.mcast.net: igmp v3 report, 1 group record(s)
+13:16:03.033618 IP 192.168.1.64.mdns > mdns.mcast.net.mdns: 0 [5q] [5n] ANY (QU)? BCS-V-EIP44VSR320220303AAWRJ58833962.local. ANY (QU)? BCS-V-EIP44VSR320220303AAWRJ58833962.local. ANY (QU)? UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local. ANY (QU)? UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local. ANY (QU)? UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local. (309)
+13:16:03.033905 IP6 fe80::3ac4:e8ff:fe20:575d.mdns > ff02::fb.mdns: 0 [5q] [5n] ANY (QU)? BCS-V-EIP44VSR320220303AAWRJ58833962.local. ANY (QU)? BCS-V-EIP44VSR320220303AAWRJ58833962.local. ANY (QU)? UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local. ANY (QU)? UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local. ANY (QU)? UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local. (309)
+13:16:03.376646 IP 192.168.1.64.mdns > mdns.mcast.net.mdns: 0 [5q] [5n] ANY (QM)? BCS-V-EIP44VSR320220303AAWRJ58833962.local. ANY (QM)? BCS-V-EIP44VSR320220303AAWRJ58833962.local. ANY (QM)? UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local. ANY (QM)? UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local. ANY (QM)? UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local. (309)
+13:16:03.376938 IP6 fe80::3ac4:e8ff:fe20:575d.mdns > ff02::fb.mdns: 0 [5q] [5n] ANY (QM)? BCS-V-EIP44VSR320220303AAWRJ58833962.local. ANY (QM)? BCS-V-EIP44VSR320220303AAWRJ58833962.local. ANY (QM)? UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local. ANY (QM)? UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local. ANY (QM)? UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local. (309)
+13:16:03.448827 IP 192.168.1.64 > igmp.mcast.net: igmp v3 report, 1 group record(s)
+13:16:03.684860 IP 192.168.1.64.mdns > mdns.mcast.net.mdns: 0 [5q] [5n] ANY (QM)? BCS-V-EIP44VSR320220303AAWRJ58833962.local. ANY (QM)? BCS-V-EIP44VSR320220303AAWRJ58833962.local. ANY (QM)? UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local. ANY (QM)? UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local. ANY (QM)? UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local. (309)
+13:16:03.685157 IP6 fe80::3ac4:e8ff:fe20:575d.mdns > ff02::fb.mdns: 0 [5q] [5n] ANY (QM)? BCS-V-EIP44VSR320220303AAWRJ58833962.local. ANY (QM)? BCS-V-EIP44VSR320220303AAWRJ58833962.local. ANY (QM)? UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local. ANY (QM)? UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local. ANY (QM)? UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local. (309)
+13:16:03.868186 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:16:04.013763 IP 192.168.1.64.mdns > mdns.mcast.net.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:16:04.014348 IP6 fe80::3ac4:e8ff:fe20:575d.mdns > ff02::fb.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:16:04.326636 38:c4:e8:20:57:5d (oui Unknown) > Broadcast, ethertype Unknown (0x8033), length 416: 
+	0x0000:  2101 01f6 0000 0001 0604 0102 f22b 38c4  !............+8.
+	0x0010:  e820 575d c0a8 0140 ffff ffff ffff 0000  ..W]...@........
+	0x0020:  0000 ffff ff00 4243 532d 562d 4549 5034  ......BCS-V-EIP4
+	0x0030:  3456 5352 3332 3032 3230 3330 3341 4157  4VSR320220303AAW
+	0x0040:  524a 3538 3833 3339 3632 0000 0000 0000  RJ58833962......
+	0x0050:  0000 0000 0000 0002 422f 0000 1f40 0000  ........B/...@..
+	0x0060:  0000 0000 0000 5635 2e37 2e32 6275 696c  ......V5.7.2buil
+	0x0070:  6420 3232 3031 3131 0000 0000 0000 0000  d.220111........
+	0x0080:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0090:  0000 0000 0000 5637 2e33 2062 7569 6c64  ......V7.3.build
+	0x00a0:  2032 3131 3231 3400 0000 0000 0000 0000  .211214.........
+	0x00b0:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x00c0:  0000 0000 0000 3139 3730 2d30 312d 3031  ......1970-01-01
+	0x00d0:  2030 323a 3334 3a34 3500 0000 0000 0000  .02:34:45.......
+	0x00e0:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x00f0:  0000 0000 0000 029c 4aff c0a8 0101 0000  ........J.......
+	0x0100:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0110:  0000 0000 0000 0000 0000 0000 0000 004f  ...............O
+	0x0120:  000b 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0130:  0000 0000 0000 0000 0000 0000 0000 0050  ...............P
+	0x0140:  0000 0000 0000 0000 0001 0000 0000 0000  ................
+	0x0150:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0160:  0000 4243 532d 562d 4549 5034 3456 5352  ..BCS-V-EIP44VSR
+	0x0170:  3300 0000 0000 0000 0000 0000 0000 0000  3...............
+	0x0180:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0190:  0000                                     ..
+13:16:04.646080 IP 192.168.1.64.37020 > 239.255.255.250.37020: UDP, length 1474
+13:16:04.646104 IP 192.168.1.64 > 239.255.255.250: udp
+13:16:05.078998 IP 192.168.1.64.mdns > mdns.mcast.net.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:16:05.079604 IP6 fe80::3ac4:e8ff:fe20:575d.mdns > ff02::fb.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:16:06.329704 38:c4:e8:20:57:5d (oui Unknown) > Broadcast, ethertype Unknown (0x8033), length 416: 
+	0x0000:  2101 01f6 0000 0002 0604 0102 f12b 38c4  !............+8.
+	0x0010:  e820 575d c0a8 0140 ffff ffff ffff 0000  ..W]...@........
+	0x0020:  0000 ffff ff00 4243 532d 562d 4549 5034  ......BCS-V-EIP4
+	0x0030:  3456 5352 3332 3032 3230 3330 3341 4157  4VSR320220303AAW
+	0x0040:  524a 3538 3833 3339 3632 0000 0000 0000  RJ58833962......
+	0x0050:  0000 0000 0000 0002 422f 0000 1f40 0000  ........B/...@..
+	0x0060:  0000 0000 0000 5635 2e37 2e32 6275 696c  ......V5.7.2buil
+	0x0070:  6420 3232 3031 3131 0000 0000 0000 0000  d.220111........
+	0x0080:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0090:  0000 0000 0000 5637 2e33 2062 7569 6c64  ......V7.3.build
+	0x00a0:  2032 3131 3231 3400 0000 0000 0000 0000  .211214.........
+	0x00b0:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x00c0:  0000 0000 0000 3139 3730 2d30 312d 3031  ......1970-01-01
+	0x00d0:  2030 323a 3334 3a34 3500 0000 0000 0000  .02:34:45.......
+	0x00e0:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x00f0:  0000 0000 0000 029c 4aff c0a8 0101 0000  ........J.......
+	0x0100:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0110:  0000 0000 0000 0000 0000 0000 0000 004f  ...............O
+	0x0120:  000b 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0130:  0000 0000 0000 0000 0000 0000 0000 0050  ...............P
+	0x0140:  0000 0000 0000 0000 0001 0000 0000 0000  ................
+	0x0150:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0160:  0000 4243 532d 562d 4549 5034 3456 5352  ..BCS-V-EIP44VSR
+	0x0170:  3300 0000 0000 0000 0000 0000 0000 0000  3...............
+	0x0180:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0190:  0000                                     ..
+13:16:07.160211 IP 192.168.1.64.mdns > mdns.mcast.net.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:16:07.160811 IP6 fe80::3ac4:e8ff:fe20:575d.mdns > ff02::fb.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:16:07.368874 IP6 fe80::3ac4:e8ff:fe20:575d > ip6-allrouters: ICMP6, router solicitation, length 16
+13:16:10.645836 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:16:11.212105 IP 192.168.1.64.mdns > mdns.mcast.net.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:16:11.212706 IP6 fe80::3ac4:e8ff:fe20:575d.mdns > ff02::fb.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:16:19.298141 IP 192.168.1.64.mdns > mdns.mcast.net.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:16:19.298730 IP6 fe80::3ac4:e8ff:fe20:575d.mdns > ff02::fb.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:16:21.452419 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:16:21.616424 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:16:35.347887 IP 192.168.1.64.mdns > mdns.mcast.net.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:16:35.348489 IP6 fe80::3ac4:e8ff:fe20:575d.mdns > ff02::fb.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:16:38.089357 IP6 fe80::3ac4:e8ff:fe20:575d > ip6-allrouters: ICMP6, router solicitation, length 16
+13:17:07.440419 IP 192.168.1.64.mdns > mdns.mcast.net.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:17:07.441029 IP6 fe80::3ac4:e8ff:fe20:575d.mdns > ff02::fb.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:17:39.530225 IP6 fe80::3ac4:e8ff:fe20:575d > ip6-allrouters: ICMP6, router solicitation, length 16
+13:18:11.491260 IP 192.168.1.64.mdns > mdns.mcast.net.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:18:11.491862 IP6 fe80::3ac4:e8ff:fe20:575d.mdns > ff02::fb.mdns: 0*- [0q] 16/0/6 (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) PTR BCS-V-EIP44VSR320220303AAWRJ58833962.local., (Cache flush) TXT "path=/", PTR _http._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._http._tcp.local., (Cache flush) TXT "path=/", PTR _psia._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._psia._tcp.local., (Cache flush) TXT "path=/", PTR _CGI._tcp.local., PTR UPNP BCS-V-EIP44VSR3 - J58833962._CGI._tcp.local., (Cache flush) A 192.168.1.64, (Cache flush) AAAA fe80::3ac4:e8ff:fe20:575d, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0, (Cache flush) SRV BCS-V-EIP44VSR320220303AAWRJ58833962.local.:80 0 0 (683)
+13:19:47.536235 IP6 fe80::3ac4:e8ff:fe20:575d > ip6-allrouters: ICMP6, router solicitation, length 16
+13:21:02.464571 ARP, Request who-has 192.168.1.1 tell 192.168.1.64, length 46
+13:21:21.454984 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:21:21.464487 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:21:21.820498 IP6 :: > ff02::1:ff90:adef: ICMP6, neighbor solicitation, who has fe80::876d:6757:e390:adef, length 32
+13:21:22.428478 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:21:22.844552 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:21:22.856487 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:21:23.008447 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:21:23.040376 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:21:23.452460 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:21:23.454783 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:21:23.591267 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:21:25.784608 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:21:26.019038 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:21:26.968445 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:21:30.942323 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:21:34.790602 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:21:39.372911 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:21:50.353308 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:21:55.556610 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:22:06.460486 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:22:06.489837 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:22:06.500472 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:22:07.196502 IP6 :: > ff02::1:ff90:adef: ICMP6, neighbor solicitation, who has fe80::876d:6757:e390:adef, length 32
+13:22:07.484459 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:22:08.220611 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:22:08.232456 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:22:08.266560 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:22:08.382710 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:22:08.489736 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:22:08.828487 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:22:09.180491 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:22:10.454720 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:22:11.413648 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:22:12.523296 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:22:16.324604 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:22:21.421120 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:22:25.135522 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:22:39.093206 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:22:42.011245 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:22:51.464457 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:22:51.501874 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:22:51.508485 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:22:52.188507 IP6 :: > ff02::1:ff90:adef: ICMP6, neighbor solicitation, who has fe80::876d:6757:e390:adef, length 32
+13:22:52.380461 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:22:53.212589 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:22:53.224485 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:22:53.276425 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:22:53.389120 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:22:53.491468 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:22:53.501737 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:22:53.884469 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:22:55.609992 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:22:56.101989 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:22:57.494698 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:23:00.757126 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:23:05.300592 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:23:08.874117 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:23:20.221829 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:23:25.116885 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:23:36.460470 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:23:36.513778 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:23:36.520433 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:23:36.576404 IP6 :: > ff02::1:ff90:adef: ICMP6, neighbor solicitation, who has fe80::876d:6757:e390:adef, length 32
+13:23:37.052466 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:23:37.596559 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:23:37.608451 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:23:37.746695 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:23:38.172423 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:23:38.236426 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:23:38.513478 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:23:38.761608 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:23:40.528430 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:23:41.011413 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:23:41.771909 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:23:44.591733 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:23:49.964604 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:23:53.265007 IP6 fe80::3ac4:e8ff:fe20:575d > ip6-allrouters: ICMP6, router solicitation, length 16
+13:23:53.446676 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:24:07.148833 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:24:10.193060 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:24:21.460468 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:24:22.044458 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:25:56.501090 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:25:56.512512 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:25:56.548415 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:25:56.828473 IP6 :: > ff02::1:ff90:adef: ICMP6, neighbor solicitation, who has fe80::876d:6757:e390:adef, length 32
+13:25:57.852612 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:25:57.864485 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:25:58.020420 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:25:58.064617 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:25:58.100448 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:25:58.349310 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:25:58.500753 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:26:00.399445 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:26:01.217469 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:26:02.058744 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:26:02.436011 ARP, Request who-has 192.168.1.1 tell 192.168.1.64, length 46
+13:26:05.223604 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:26:09.869539 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:26:13.517817 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:26:25.693836 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:26:29.546921 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:26:41.460487 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:26:41.501590 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:26:41.508488 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:26:42.108473 IP6 :: > ff02::1:ff90:adef: ICMP6, neighbor solicitation, who has fe80::876d:6757:e390:adef, length 32
+13:26:42.268456 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:26:43.132573 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:26:43.144463 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:26:43.240430 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:26:43.260511 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:26:43.396468 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:26:43.501483 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:26:43.700954 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:26:45.924918 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:26:46.342111 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:26:47.056225 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:26:50.370713 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:26:54.356650 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:26:58.414323 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:27:09.150472 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:27:14.726176 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:27:29.549091 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:27:29.556475 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:27:29.648441 IP6 :: > ff02::1:ff90:adef: ICMP6, neighbor solicitation, who has fe80::876d:6757:e390:adef, length 32
+13:27:29.764439 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:27:30.652584 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:27:30.658252 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:27:30.664466 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:27:31.260483 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:27:31.420483 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:27:31.549033 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:27:31.740521 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:27:33.961854 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:27:34.493628 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:27:34.576088 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:27:38.716032 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:27:42.067805 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:27:47.270177 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:27:57.070388 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:28:04.144119 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:28:14.468511 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:28:14.497578 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:28:14.504511 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:28:14.908478 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:28:14.940452 IP6 :: > ff02::1:ff90:adef: ICMP6, neighbor solicitation, who has fe80::876d:6757:e390:adef, length 32
+13:28:15.964590 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:28:15.976459 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:28:16.072707 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:28:16.497452 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:28:16.603269 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:28:16.604440 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:28:16.764434 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:28:18.781498 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:28:19.236675 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:28:20.055977 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:28:23.375101 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:28:27.698875 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:28:31.421212 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:28:42.330586 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:28:47.584554 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:28:59.460517 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:28:59.494410 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:28:59.500462 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 3 group record(s), length 68
+13:28:59.616436 IP6 :: > ff02::1:ff90:adef: ICMP6, neighbor solicitation, who has fe80::876d:6757:e390:adef, length 32
+13:28:59.752473 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:29:00.636573 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:29:00.648453 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:29:00.684576 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:29:00.712427 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:29:01.276473 IP6 fe80::876d:6757:e390:adef > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+13:29:01.320529 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:29:01.494388 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:29:03.359666 IP6 fe80::876d:6757:e390:adef.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR raspberrypi.local., (Cache flush) AAAA fe80::876d:6757:e390:adef (143)
+13:29:04.428072 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:29:04.954060 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:29:09.366473 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:29:13.328660 IP6 fe80::876d:6757:e390:adef > ip6-allrouters: ICMP6, router solicitation, length 8
+13:29:17.560505 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from dc:a6:32:86:85:8e (oui Unknown), length 295
+13:29:18.981289 ARP, Request who-has 192.168.1.128 tell 192.168.1.73, length 46
+13:29:19.481457 ARP, Request who-has 192.168.1.128 tell 192.168.1.73, length 46
+13:29:19.982469 ARP, Request who-has 192.168.1.128 tell 192.168.1.73, length 46
+13:29:20.483485 ARP, Request who-has 192.168.1.128 tell 192.168.1.73, length 46
+
