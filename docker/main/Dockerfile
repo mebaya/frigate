@@ -31,7 +31,7 @@ RUN --mount=type=tmpfs,target=/tmp --mount=type=tmpfs,target=/var/cache/apt \
     /deps/build_nginx.sh
 
 FROM scratch AS go2rtc
-ARG TARGETARCH
+ARG TARGETARCH=arm64
 WORKDIR /rootfs/usr/local/go2rtc/bin
 ADD --link --chmod=755 "https://github.com/AlexxIT/go2rtc/releases/download/v1.8.3/go2rtc_linux_${TARGETARCH}" go2rtc
 
@@ -234,7 +234,6 @@ RUN --mount=type=bind,source=./docker/main/requirements-dev.txt,target=/workspac
 
 CMD ["sleep", "infinity"]
 
-
 # Frigate web build
 # This should be architecture agnostic, so speed up the build on multiarch by not using QEMU.
 FROM --platform=$BUILDPLATFORM node:16 AS web-build
@@ -256,8 +255,10 @@ COPY frigate frigate/
 COPY migrations migrations/
 COPY --from=web-build /work/dist/ web/
 
+
 # Frigate final container
 FROM deps AS frigate
 
 WORKDIR /opt/frigate/
 COPY --from=rootfs / /
+

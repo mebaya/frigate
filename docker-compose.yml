@@ -1,7 +1,8 @@
-version: "3"
+version: "3.4"
 services:
   devcontainer:
     container_name: frigate-devcontainer
+    privileged: true
     # add groups from host for render, plugdev, video
     group_add:
       - "109" # render
@@ -9,11 +10,17 @@ services:
       - "44"  # video
       - "46"  # plugdev
     shm_size: "256mb"
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+      - "8554:8554" # RTSP feeds
+      - "8555:8555/tcp" # WebRTC over tcp
+      - "8555:8555/udp" # WebRTC over udp
     build:
       context: .
       dockerfile: docker/main/Dockerfile
+      target: frigate
       # Use target devcontainer-trt for TensorRT dev
-      target: devcontainer
     ## Uncomment this block for nvidia gpu support
     # deploy:
     #       resources:
@@ -29,13 +36,9 @@ services:
       # - /dev/dri:/dev/dri # for intel hwaccel, needs to be updated for your hardware
     volumes:
       - .:/workspace/frigate:cached
-      - ./web/dist:/opt/frigate/web:cached
+        #- ./web/dist:/opt/frigate/web:cached
       - /etc/localtime:/etc/localtime:ro
       - ./config:/config
-      - ./debug:/media/frigate
+      - /mnt/usb1/frigate:/media/frigate
       - /dev/bus/usb:/dev/bus/usb
-  mqtt:
-    container_name: mqtt
-    image: eclipse-mosquitto:1.6
-    ports:
-      - "1883:1883"
+      - /home/mvision/apps/deps/go2rtc:/config/go2rtc

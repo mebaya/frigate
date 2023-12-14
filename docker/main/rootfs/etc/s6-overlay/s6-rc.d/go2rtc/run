@@ -48,7 +48,7 @@ export LIBAVFORMAT_VERSION_MAJOR=$(ffmpeg -version | grep -Po 'libavformat\W+\K\
 if [[ -f "/dev/shm/go2rtc.yaml" ]]; then
     echo "[INFO] Removing stale config from last run..."
     rm /dev/shm/go2rtc.yaml
-
+fi
 if [[ ! -f "/dev/shm/go2rtc.yaml" ]]; then
     echo "[INFO] Preparing new go2rtc config..."
 
@@ -70,9 +70,9 @@ if [[ -x "${config_path}/go2rtc" ]]; then
 else
   readonly binary_path="/usr/local/go2rtc/bin/go2rtc"
 fi
+printf "[INFO] using $binary_path \n"
 
 echo "[INFO] Starting go2rtc..."
-
 # Replace the bash process with the go2rtc process, redirecting stderr to stdout
 exec 2>&1
 exec "${binary_path}" -config=/dev/shm/go2rtc.yaml

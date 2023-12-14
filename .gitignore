@@ -18,3 +18,5 @@ web/coverage
 core
 !/web/**/*.ts
 .idea/*
+
+docs

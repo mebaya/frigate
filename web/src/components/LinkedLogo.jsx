@@ -9,7 +9,7 @@ export default function LinkedLogo() {
         <div className="w-10">
           <Logo />
         </div>
-        Frigate
+        Mebaya
       </a>
     </Heading>
   );

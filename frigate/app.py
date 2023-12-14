@@ -671,6 +671,7 @@ class FrigateApp:
             self.init_database()
             self.init_onvif()
             self.init_recording_manager()
+            print("looking for go2rtc")
             self.init_go2rtc()
             self.bind_database()
             self.init_inter_process_communicator()
