@@ -48,6 +48,14 @@ class Event(Model):  # type: ignore[misc]
     data = JSONField()  # ex: tracked object box, region, etc.
 
 
+class EventCloud(Model):
+    id = CharField(null=False, primary_key=True, max_length=30)
+    label = CharField(index=True, max_length=20)
+    camera = CharField(index=True, max_length=20)
+    path = CharField(index=True, max_length=100)
+    start_time = DateTimeField()
+
+
 class Timeline(Model):  # type: ignore[misc]
     timestamp = DateTimeField()
     camera = CharField(index=True, max_length=20)

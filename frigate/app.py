@@ -16,6 +16,7 @@ import psutil
 from peewee_migrate import Router
 from playhouse.sqlite_ext import SqliteExtDatabase
 from playhouse.sqliteq import SqliteQueueDatabase
+from playhouse.postgres_ext import PostgresqlExtDatabase
 
 from frigate.comms.dispatcher import Communicator, Dispatcher
 from frigate.comms.inter_process import InterProcessCommunicator
@@ -37,7 +38,13 @@ from frigate.events.external import ExternalEventProcessor
 from frigate.events.maintainer import EventProcessor
 from frigate.http import create_app
 from frigate.log import log_process, root_configurer
-from frigate.models import Event, Recordings, RecordingsToDelete, Regions, Timeline
+from frigate.models import (
+    Event,
+    Recordings,
+    RecordingsToDelete,
+    Regions,
+    Timeline,
+    EventCloud)
 from frigate.object_detection import ObjectDetectProcess
 from frigate.object_processing import TrackedObjectProcessor
 from frigate.output import output_frames
@@ -54,6 +61,7 @@ from frigate.util.object import get_camera_regions_grid
 from frigate.version import VERSION
 from frigate.video import capture_camera, track_camera
 from frigate.watchdog import FrigateWatchdog
+from frigate.mebaya.settings import settings as pg_settings
 
 logger = logging.getLogger(__name__)
 
@@ -272,7 +280,6 @@ class FrigateApp:
     def init_database(self) -> None:
         def vacuum_db(db: SqliteExtDatabase) -> None:
             db.execute_sql("VACUUM;")
-
             try:
                 with open(f"{CONFIG_DIR}/.vacuum", "w") as f:
                     f.write(str(datetime.datetime.now().timestamp()))
@@ -370,6 +377,16 @@ class FrigateApp:
         )
         models = [Event, Recordings, RecordingsToDelete, Regions, Timeline]
         self.db.bind(models)
+
+    def bind_database_cloud(self) -> None:
+        self.dbcloud = PostgresqlExtDatabase(
+            settings.POSTGRES_DB,
+            user=pg_settings.POSTGRES_USER,
+            password=pg_settings.POSTGRES_PASSWD,
+            host=pg_settings.POSTGRES_ADDRESS,
+            port=pg_settings.POSTGRES_PORT)
+        models = [EventCloud]
+        self.dbcloud.bind(models)
 
     def init_stats(self) -> None:
         self.stats_tracking = stats_init(

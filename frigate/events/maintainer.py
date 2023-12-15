@@ -8,12 +8,13 @@ from multiprocessing.synchronize import Event as MpEvent
 from typing import Dict
 
 from frigate.config import EventsConfig, FrigateConfig
-from frigate.models import Event
+from frigate.models import Event, EventCloud
 from frigate.types import CameraMetricsTypes
 from frigate.util.builtin import to_relative_box
 
 
-from frigate.mebaya import EventToJson
+from frigate.mebaya.settings import CloudStorageObject
+from frigate.mebaya.event_alarms import find_record_name
 
 logger = logging.getLogger(__name__)
 
@@ -107,7 +108,6 @@ class EventProcessor(threading.Thread):
                 self.handle_object_detection(event_type, camera, event_data)
             elif source_type == EventTypeEnum.api:
                 self.handle_external_detection(event_type, event_data)
-            EventToJson().process(event_data, event_config=self.config.cameras[camera])
 
         # set an end_time on events without an end_time before exiting
         Event.update(end_time=datetime.datetime.now().timestamp()).where(
@@ -213,6 +213,14 @@ class EventProcessor(threading.Thread):
                     "type": "object",
                 },
             }
+            future_recording_path = find_record_name(start_time, camera)
+            event_cloud = {
+                EventCloud.id: event_data["id"],
+                EventCloud.label: event_data["label"],
+                EventCloud.camera: camera,
+                EventCloud.start_time: start_time,
+                EventCloud.path: future_recording_path
+            }
 
             # only overwrite the sub_label in the database if it's set
             if event_data.get("sub_label") is not None:
@@ -228,8 +236,15 @@ class EventProcessor(threading.Thread):
                     update=event,
                 )
                 .execute()
-                
-                
+            )
+            (
+                # MEBAYA
+                EventCloud.insert(event_cloud)
+                .on_conflict(
+                    conflict_target=[EventCloud.id],
+                    update=event_cloud,
+                )
+                .execute()
             )
 
         # check if the stored event_data should be updated
