@@ -12,6 +12,9 @@ from frigate.models import Event
 from frigate.types import CameraMetricsTypes
 from frigate.util.builtin import to_relative_box
 
+
+from frigate.mebaya import EventToJson
+
 logger = logging.getLogger(__name__)
 
 
@@ -104,6 +107,7 @@ class EventProcessor(threading.Thread):
                 self.handle_object_detection(event_type, camera, event_data)
             elif source_type == EventTypeEnum.api:
                 self.handle_external_detection(event_type, event_data)
+            EventToJson().process(event_data, event_config=self.config.cameras[camera])
 
         # set an end_time on events without an end_time before exiting
         Event.update(end_time=datetime.datetime.now().timestamp()).where(
@@ -119,7 +123,7 @@ class EventProcessor(threading.Thread):
     ) -> None:
         """handle tracked object event updates."""
         updated_db = False
-
+        # record new event
         # if this is the first message, just store it and continue, its not time to insert it in the db
         if should_update_db(self.events_in_process[event_data["id"]], event_data):
             updated_db = True
@@ -216,12 +220,16 @@ class EventProcessor(threading.Thread):
                 event[Event.data]["sub_label_score"] = event_data["sub_label"][1]
 
             (
+                # MEBAYA
+                # on event store create json in STORAGE with event data 
                 Event.insert(event)
                 .on_conflict(
                     conflict_target=[Event.id],
                     update=event,
                 )
                 .execute()
+                
+                
             )
 
         # check if the stored event_data should be updated
