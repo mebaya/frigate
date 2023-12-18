@@ -1,2 +1,7 @@
 scikit-build == 0.17.*
 nvidia-pyindex
+
+#mebaya
+minio
+urllib3
+psycopg2-binary

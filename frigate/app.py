@@ -16,7 +16,7 @@ import psutil
 from peewee_migrate import Router
 from playhouse.sqlite_ext import SqliteExtDatabase
 from playhouse.sqliteq import SqliteQueueDatabase
-from playhouse.postgres_ext import PostgresqlExtDatabase
+from peewee import PostgresqlDatabase
 
 from frigate.comms.dispatcher import Communicator, Dispatcher
 from frigate.comms.inter_process import InterProcessCommunicator
@@ -61,7 +61,7 @@ from frigate.util.object import get_camera_regions_grid
 from frigate.version import VERSION
 from frigate.video import capture_camera, track_camera
 from frigate.watchdog import FrigateWatchdog
-from frigate.mebaya.settings import settings as pg_settings
+from frigate.mebaya.settings import PGSettings
 
 logger = logging.getLogger(__name__)
 
@@ -379,14 +379,17 @@ class FrigateApp:
         self.db.bind(models)
 
     def bind_database_cloud(self) -> None:
-        self.dbcloud = PostgresqlExtDatabase(
-            settings.POSTGRES_DB,
-            user=pg_settings.POSTGRES_USER,
-            password=pg_settings.POSTGRES_PASSWD,
-            host=pg_settings.POSTGRES_ADDRESS,
-            port=pg_settings.POSTGRES_PORT)
+        self.dbcloud = PostgresqlDatabase(
+            PGSettings.POSTGRES_DB,
+            user=PGSettings.POSTGRES_USER,
+            password=PGSettings.POSTGRES_PASSWD,
+            host=PGSettings.POSTGRES_ADDRESS,
+            port=PGSettings.POSTGRES_PORT)
         models = [EventCloud]
         self.dbcloud.bind(models)
+        self.dbcloud.connect()
+        self.dbcloud.create_tables(models)
+        self.dbcloud.close()
 
     def init_stats(self) -> None:
         self.stats_tracking = stats_init(
@@ -691,6 +694,7 @@ class FrigateApp:
             print("looking for go2rtc")
             self.init_go2rtc()
             self.bind_database()
+            self.bind_database_cloud()
             self.init_inter_process_communicator()
             self.init_dispatcher()
         except Exception as e:

@@ -31,6 +31,9 @@ from frigate.types import FeatureMetricsTypes
 from frigate.util.image import area
 from frigate.util.services import get_video_properties
 
+from frigate.mebaya.cloudstore import RemoteRecordStore
+from frigate.mebaya.settings import CloudStorageObject
+
 logger = logging.getLogger(__name__)
 
 QUEUE_READ_TIMEOUT = 0.00001  # seconds
@@ -76,6 +79,7 @@ class RecordingMaintainer(threading.Thread):
         self.object_recordings_info: dict[str, list] = defaultdict(list)
         self.audio_recordings_info: dict[str, list] = defaultdict(list)
         self.end_time_cache: dict[str, Tuple[datetime.datetime, float]] = {}
+        self.remote_storage = RemoteRecordStore(CloudStorageObject)
 
     async def move_files(self) -> None:
         cache_files = [
@@ -394,6 +398,7 @@ class RecordingMaintainer(threading.Thread):
                     logger.debug(
                         f"Copied {file_path} in {datetime.datetime.now().timestamp()-start_frame} seconds."
                     )
+                self.remote_storage.upload(file_path)
 
                 try:
                     # get the segment size of the cache file

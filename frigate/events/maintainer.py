@@ -12,7 +12,6 @@ from frigate.models import Event, EventCloud
 from frigate.types import CameraMetricsTypes
 from frigate.util.builtin import to_relative_box
 
-
 from frigate.mebaya.settings import CloudStorageObject
 from frigate.mebaya.event_alarms import find_record_name
 

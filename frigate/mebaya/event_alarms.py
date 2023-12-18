@@ -1,6 +1,7 @@
 import os
 import json
 import datetime
+from typing import Union
 
 from frigate.models import Event
 from frigate.const import (
@@ -18,8 +19,15 @@ def get_datetime_from_timestamp(timestamp: int) -> str:
     return dt
 
 
-def find_record_name(start_time, camera) -> str:
-    # directory will be in utc due to start_time being in utc
+def find_record_name(start_time: Union[datetime.datetime, float], camera) -> str:
+    """
+    Args:
+        start_time (datetime.datetime of float) if float it should be timestamp
+    Returns:
+        str: path
+    """
+    if isinstance(start_time, float):
+        start_time = datetime.datetime.fromtimestamp(start_time)
     directory = os.path.join(
         start_time.strftime("%Y-%m-%d/%H"),
         camera,

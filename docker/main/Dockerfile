@@ -31,7 +31,7 @@ RUN --mount=type=tmpfs,target=/tmp --mount=type=tmpfs,target=/var/cache/apt \
     /deps/build_nginx.sh
 
 FROM scratch AS go2rtc
-ARG TARGETARCH=arm64
+ARG TARGETARCH
 WORKDIR /rootfs/usr/local/go2rtc/bin
 ADD --link --chmod=755 "https://github.com/AlexxIT/go2rtc/releases/download/v1.8.3/go2rtc_linux_${TARGETARCH}" go2rtc
 
@@ -152,7 +152,6 @@ RUN pip3 install -r /requirements.txt
 
 COPY docker/main/requirements-wheels.txt /requirements-wheels.txt
 RUN pip3 wheel --wheel-dir=/wheels -r /requirements-wheels.txt
-
 
 # Collect deps in a single layer
 FROM scratch AS deps-rootfs
