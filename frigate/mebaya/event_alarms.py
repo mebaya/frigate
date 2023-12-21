@@ -3,9 +3,8 @@ import json
 import datetime
 from typing import Union
 
-from frigate.models import Event
+from frigate.models import Event, EventCloud
 from frigate.const import (
-                            EXPORT_DIR,
                             RECORD_DIR,
                             CLOUD_DIR)
 
@@ -38,36 +37,42 @@ def find_record_name(start_time: Union[datetime.datetime, float], camera) -> str
     return file_path
 
 
-class EventToJson:
+class EventToCloudEvent:
     # /home/mvision/apps/frigate/frigate/events/maintainer.py
     # /home/mvision/apps/frigate/frigate/record/export.py
     def __init__(self, event_config):
         self.event_config = event_config
-        pass
 
-    def process(self, event_data: Event):
+    def send(self, event_data: dict):
 
         start_time = event_data["start_time"] - self.event_config.pre_capture
-        end_time = (
-                None
-                if event_data["end_time"] is None
-                else event_data["end_time"] + self.event_config.post_capture
-            )
         # get recording name it may not be present yet
         recording = find_record_name(start_time, event_data['camera'])
-        event_json = dict(
+        cloud_filename = recording.replace(RECORD_DIR, CLOUD_DIR)
+        # score if snapshot is available
+        score = None if event_data["snapshot"] is None else event_data["snapshot"]["score"]
+        # numeric time stamp to datetime
+        start_time_dt = datetime.datetime.fromtimestamp(start_time)
+
+        eventdict = dict(
                     id=event_data['id'],
                     camera=event_data['camera'],
                     label=event_data["label"],
-                    start_time=start_time,
-                    end_time=end_time,
-                    path=recording
+                    start_time=start_time_dt,
+                    path=cloud_filename,
+                    top_score=event_data['top_score'],
+                    score=score
                 )
-        cloud_filename = recording.replace(RECORD_DIR, CLOUD_DIR)
-        self.save(event_json, cloud_filename)
+        self.execute(eventdict)
 
-        
-    def save(self, event_json, filename):
-        
-        with open(filename, "wt") as fp:
-            json.dump(event_json, fp)
+    def execute(self, eventdict: dict) -> None:
+        (
+            EventCloud.insert(eventdict)
+            .on_conflict(
+                conflict_target=[EventCloud.id],
+                update=eventdict,
+            )
+            .execute()
+        )
+
+

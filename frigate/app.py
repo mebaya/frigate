@@ -16,7 +16,7 @@ import psutil
 from peewee_migrate import Router
 from playhouse.sqlite_ext import SqliteExtDatabase
 from playhouse.sqliteq import SqliteQueueDatabase
-from peewee import PostgresqlDatabase
+from playhouse.postgres_ext import PostgresqlExtDatabase
 
 from frigate.comms.dispatcher import Communicator, Dispatcher
 from frigate.comms.inter_process import InterProcessCommunicator
@@ -379,7 +379,7 @@ class FrigateApp:
         self.db.bind(models)
 
     def bind_database_cloud(self) -> None:
-        self.dbcloud = PostgresqlDatabase(
+        self.dbcloud = PostgresqlExtDatabase(
             PGSettings.POSTGRES_DB,
             user=PGSettings.POSTGRES_USER,
             password=PGSettings.POSTGRES_PASSWD,

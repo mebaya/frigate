@@ -12,8 +12,7 @@ from frigate.models import Event, EventCloud
 from frigate.types import CameraMetricsTypes
 from frigate.util.builtin import to_relative_box
 
-from frigate.mebaya.settings import CloudStorageObject
-from frigate.mebaya.event_alarms import find_record_name
+from frigate.mebaya.event_alarms import EventToCloudEvent
 
 logger = logging.getLogger(__name__)
 
@@ -164,7 +163,6 @@ class EventProcessor(threading.Thread):
                     event_data["snapshot"]["box"],
                 )
             )
-
             attributes = [
                 (
                     None
@@ -212,14 +210,7 @@ class EventProcessor(threading.Thread):
                     "type": "object",
                 },
             }
-            future_recording_path = find_record_name(start_time, camera)
-            event_cloud = {
-                EventCloud.id: event_data["id"],
-                EventCloud.label: event_data["label"],
-                EventCloud.camera: camera,
-                EventCloud.start_time: start_time,
-                EventCloud.path: future_recording_path
-            }
+            EventToCloudEvent(event_config).send(event_data, camera)
 
             # only overwrite the sub_label in the database if it's set
             if event_data.get("sub_label") is not None:
@@ -227,7 +218,6 @@ class EventProcessor(threading.Thread):
                 event[Event.data]["sub_label_score"] = event_data["sub_label"][1]
 
             (
-                # MEBAYA
                 # on event store create json in STORAGE with event data 
                 Event.insert(event)
                 .on_conflict(
@@ -236,15 +226,7 @@ class EventProcessor(threading.Thread):
                 )
                 .execute()
             )
-            (
-                # MEBAYA
-                EventCloud.insert(event_cloud)
-                .on_conflict(
-                    conflict_target=[EventCloud.id],
-                    update=event_cloud,
-                )
-                .execute()
-            )
+
 
         # check if the stored event_data should be updated
         if updated_db or should_update_state(

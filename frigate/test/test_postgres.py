@@ -2,14 +2,14 @@ import datetime
 
 import pytest
 
-from peewee import PostgresqlDatabase
+from playhouse.postgres_ext import PostgresqlExtDatabase
 from frigate.models import EventCloud
 from frigate.mebaya.settings import PGSettings
 
 
 
 def test_pg_connection():
-    dbcloud = PostgresqlDatabase(
+    dbcloud = PostgresqlExtDatabase(
         PGSettings.POSTGRES_DB,
         user=PGSettings.POSTGRES_USER,
         password=PGSettings.POSTGRES_PASSWD,
