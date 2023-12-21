@@ -8,11 +8,11 @@ from multiprocessing.synchronize import Event as MpEvent
 from typing import Dict
 
 from frigate.config import EventsConfig, FrigateConfig
-from frigate.models import Event, EventCloud
+from frigate.models import Event
 from frigate.types import CameraMetricsTypes
 from frigate.util.builtin import to_relative_box
 
-from frigate.mebaya.event_alarms import EventToCloudEvent
+from frigate.mebaya import EventToCloudEvent
 
 logger = logging.getLogger(__name__)
 
@@ -69,6 +69,7 @@ class EventProcessor(threading.Thread):
         self.timeline_queue = timeline_queue
         self.events_in_process: Dict[str, Event] = {}
         self.stop_event = stop_event
+
 
     def run(self) -> None:
         # set an end_time on events without an end_time on startup
@@ -210,7 +211,11 @@ class EventProcessor(threading.Thread):
                     "type": "object",
                 },
             }
-            EventToCloudEvent(event_config).send(event_data, camera)
+            event_data['model_type'] = first_detector.model.model_type
+            EventToCloudEvent(
+                event_config=event_config,
+                devicename=self.config.devicename
+            ).send(event_data)
 
             # only overwrite the sub_label in the database if it's set
             if event_data.get("sub_label") is not None:

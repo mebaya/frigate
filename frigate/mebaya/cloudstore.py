@@ -30,9 +30,9 @@ class RemoteRecordStore:
     def upload(self, recordfile: str):
         assert os.path.isfile(recordfile)
         flatname = recordfile.replace(r"/", r"_")
-        flatname_base = os.path.basename(flatname)
+        #flatname_base = os.path.basename(flatname)
         self.client.fput_object(
-            self.bucket, flatname_base, recordfile,
+            self.bucket, flatname, recordfile,
         )
         print(
             f"{recordfile} is successfully uploaded as object {flatname} to bucket {self.bucket}."

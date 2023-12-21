@@ -1,1 +1,1 @@
-from .event_alarms import EventToJson
+from .event_alarms import EventToCloudEvent

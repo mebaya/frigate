@@ -119,7 +119,7 @@ class FrigateApp:
 
         user_config = FrigateConfig.parse_file(config_file)
         self.config = user_config.runtime_config(self.plus_api)
-
+        print(f"Mebaya server name: {self.config.devicename}")
         for camera_name in self.config.cameras.keys():
             # create camera_metrics
             self.camera_metrics[camera_name] = {

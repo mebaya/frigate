@@ -40,8 +40,9 @@ def find_record_name(start_time: Union[datetime.datetime, float], camera) -> str
 class EventToCloudEvent:
     # /home/mvision/apps/frigate/frigate/events/maintainer.py
     # /home/mvision/apps/frigate/frigate/record/export.py
-    def __init__(self, event_config):
+    def __init__(self, event_config, devicename: str):
         self.event_config = event_config
+        self.devicename = devicename
 
     def send(self, event_data: dict):
 
@@ -56,10 +57,12 @@ class EventToCloudEvent:
 
         eventdict = dict(
                     id=event_data['id'],
+                    device=self.devicename,
                     camera=event_data['camera'],
                     label=event_data["label"],
                     start_time=start_time_dt,
                     path=cloud_filename,
+                    model_type=event_data['model_type'],
                     top_score=event_data['top_score'],
                     score=score
                 )

@@ -50,19 +50,19 @@ class Event(Model):  # type: ignore[misc]
 
 class EventCloud(Model):
     id = CharField(null=False, primary_key=True, max_length=30)
+    device = CharField(max_length=30)
     label = CharField(index=True, max_length=20)
     camera = CharField(index=True, max_length=20)
     path = CharField(index=True, max_length=100)
     start_time = DateTimeField()
     # model data
-    model_type = CharField(max_lenght=32)
+    model_type = CharField(max_length=32)
     top_score = (
         FloatField()
     )  # TODO remove when columns can be dropped without rebuilding table
     score = (
         FloatField()
     )  # TODO remove when columns can be dropped without rebuilding table
-    false_positive = BooleanField()
 
 
 class Timeline(Model):  # type: ignore[misc]
