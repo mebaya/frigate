@@ -5,7 +5,7 @@ from minio import Minio
 from minio.error import S3Error
 
 from .settings import CloudStorageObject
-
+from ..const import RECORD_DIR
 
 class RemoteRecordStore:
     # Create a client with the MinIO server playground, its access key
@@ -29,13 +29,12 @@ class RemoteRecordStore:
 
     def upload(self, recordfile: str):
         assert os.path.isfile(recordfile)
-        flatname = recordfile.replace(r"/", r"_")
-        #flatname_base = os.path.basename(flatname)
+        filename = recordfile.replace(RECORD_DIR, "")
         self.client.fput_object(
-            self.bucket, flatname, recordfile,
+            self.bucket, filename, recordfile,
         )
         print(
-            f"{recordfile} is successfully uploaded as object {flatname} to bucket {self.bucket}."
+            f"{recordfile} is successfully uploaded as object {filename} to bucket {self.bucket}."
         )
 
 if __name__ == "__main__":

@@ -55,6 +55,7 @@ class EventCloud(Model):
     camera = CharField(index=True, max_length=20)
     path = CharField(index=True, max_length=100)
     start_time = DateTimeField()
+    end_time = DateTimeField(null=True)
     # model data
     model_type = CharField(max_length=32)
     top_score = (
@@ -63,7 +64,7 @@ class EventCloud(Model):
     score = (
         FloatField()
     )  # TODO remove when columns can be dropped without rebuilding table
-
+    updated = BooleanField(default=False)
 
 class Timeline(Model):  # type: ignore[misc]
     timestamp = DateTimeField()

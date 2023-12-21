@@ -40,13 +40,13 @@ def find_record_name(start_time: Union[datetime.datetime, float], camera) -> str
 class EventToCloudEvent:
     # /home/mvision/apps/frigate/frigate/events/maintainer.py
     # /home/mvision/apps/frigate/frigate/record/export.py
-    def __init__(self, event_config, devicename: str):
-        self.event_config = event_config
+    def __init__(self, devicename: str, model_type: str):
+        self.model_type = model_type
         self.devicename = devicename
 
-    def send(self, event_data: dict):
+    def send(self, event_data: dict, event_config):
 
-        start_time = event_data["start_time"] - self.event_config.pre_capture
+        start_time = event_data["start_time"] - event_config.pre_capture
         # get recording name it may not be present yet
         recording = find_record_name(start_time, event_data['camera'])
         cloud_filename = recording.replace(RECORD_DIR, CLOUD_DIR)
@@ -77,5 +77,27 @@ class EventToCloudEvent:
             )
             .execute()
         )
+    def update(self, eventdict: dict) -> None:
 
+        start_time_dt = datetime.datetime.fromtimestamp(eventdict['start_time'])
+        if 'end_time' in eventdict:
+            end_time_dt = datetime.datetime.fromtimestamp((eventdict['end_time']))
+        else:
+            end_time_dt = None
+        eventdict = dict(
+                    id=eventdict['id'],
+                    device=self.devicename,
+                    camera=eventdict['camera'],
+                    label=eventdict["label"],
+                    start_time=start_time_dt,
+                    end_time=end_time_dt,
+                    model_type=self.model_type,
+                    top_score=eventdict['top_score'],
+                    score=eventdict['score'],
+                    updated=True
+                )
+        EventCloud.update(eventdict).where(EventCloud.id == eventdict["id"]).execute()
+
+
+class RecordExtractor:
 

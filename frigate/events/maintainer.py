@@ -69,6 +69,11 @@ class EventProcessor(threading.Thread):
         self.timeline_queue = timeline_queue
         self.events_in_process: Dict[str, Event] = {}
         self.stop_event = stop_event
+        _firstdetector = list(self.config.detectors.values())[0]
+        self.eventclound = EventToCloudEvent(
+            devicename=self.config.devicename,
+            model_type=_firstdetector.model.model_type
+        )
 
 
     def run(self) -> None:
@@ -99,7 +104,6 @@ class EventProcessor(threading.Thread):
                         event_data,
                     )
                 )
-
                 if event_type == "start":
                     self.events_in_process[event_data["id"]] = event_data
                     continue
@@ -212,10 +216,7 @@ class EventProcessor(threading.Thread):
                 },
             }
             event_data['model_type'] = first_detector.model.model_type
-            EventToCloudEvent(
-                event_config=event_config,
-                devicename=self.config.devicename
-            ).send(event_data)
+            self.eventclound.send(event_data, event_config)
 
             # only overwrite the sub_label in the database if it's set
             if event_data.get("sub_label") is not None:
@@ -231,7 +232,6 @@ class EventProcessor(threading.Thread):
                 )
                 .execute()
             )
-
 
         # check if the stored event_data should be updated
         if updated_db or should_update_state(
@@ -272,5 +272,6 @@ class EventProcessor(threading.Thread):
 
             try:
                 Event.update(event).where(Event.id == event_data["id"]).execute()
+                self.eventcloud.update(event_data)
             except Exception:
                 logger.warning(f"Failed to update manual event: {event_data['id']}")
