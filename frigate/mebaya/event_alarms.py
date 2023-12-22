@@ -44,6 +44,11 @@ class EventToCloudEvent:
         self.model_type = model_type
         self.devicename = devicename
 
+    def timestamp_to_timezone_date(self, timestamp: int):
+
+        date = datetime.datetime.fromtimestamp(timestamp, tz=datetime.timezone.utc)
+        return date
+
     def send(self, event_data: dict, event_config):
 
         start_time = event_data["start_time"] - event_config.pre_capture
@@ -53,15 +58,19 @@ class EventToCloudEvent:
         # score if snapshot is available
         score = None if event_data["snapshot"] is None else event_data["snapshot"]["score"]
         # numeric time stamp to datetime
-        start_time_dt = datetime.datetime.fromtimestamp(start_time)
+        start_time = self.timestamp_to_timezone_date(start_time)
 
         eventdict = dict(
                     id=event_data['id'],
                     device=self.devicename,
                     camera=event_data['camera'],
                     label=event_data["label"],
-                    start_time=start_time_dt,
+                    start_time=start_time,
                     path=cloud_filename,
+                    hour=start_time.hour,
+                    day=start_time.day,
+                    minute=start_time.minute,
+                    second=start_time.second,
                     model_type=event_data['model_type'],
                     top_score=event_data['top_score'],
                     score=score
@@ -79,18 +88,18 @@ class EventToCloudEvent:
         )
     def update(self, eventdict: dict) -> None:
 
-        start_time_dt = datetime.datetime.fromtimestamp(eventdict['start_time'])
+        start_time = self.timestamp_to_timezone_date(eventdict['start_time'])
         if 'end_time' in eventdict:
-            end_time_dt = datetime.datetime.fromtimestamp((eventdict['end_time']))
+            end_time = self.timestamp_to_timezone_date(eventdict['end_time'])
         else:
-            end_time_dt = None
+            end_time = None
         eventdict = dict(
                     id=eventdict['id'],
                     device=self.devicename,
                     camera=eventdict['camera'],
                     label=eventdict["label"],
-                    start_time=start_time_dt,
-                    end_time=end_time_dt,
+                    start_time=start_time,
+                    end_time=end_time,
                     model_type=self.model_type,
                     top_score=eventdict['top_score'],
                     score=eventdict['score'],
@@ -99,5 +108,7 @@ class EventToCloudEvent:
         EventCloud.update(eventdict).where(EventCloud.id == eventdict["id"]).execute()
 
 
-class RecordExtractor:
 
+
+class RecordExtractor:
+    pass

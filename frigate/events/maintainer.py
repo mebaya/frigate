@@ -8,7 +8,7 @@ from multiprocessing.synchronize import Event as MpEvent
 from typing import Dict
 
 from frigate.config import EventsConfig, FrigateConfig
-from frigate.models import Event
+from frigate.models import Event, EventCloud
 from frigate.types import CameraMetricsTypes
 from frigate.util.builtin import to_relative_box
 
@@ -20,6 +20,28 @@ logger = logging.getLogger(__name__)
 class EventTypeEnum(str, Enum):
     api = "api"
     tracked_object = "tracked_object"
+
+def dict_to_model(eventdata: dict):
+    try:
+        zones = list(eventdata["entered_zones"])
+    except:
+        zones = []
+    event = {
+        EventCloud.id: eventdata["id"],
+        EventCloud.label: eventdata["label"],
+        EventCloud.camera: eventdata['camera'],
+        EventCloud.start_time: eventdata['start_time'],
+        EventCloud.end_time: eventdata['end_time'],
+        EventCloud.zones: zones,
+        EventCloud.thumbnail: eventdata["thumbnail"],
+        EventCloud.has_clip: eventdata["has_clip"],
+        EventCloud.has_snapshot: eventdata["has_snapshot"],
+        EventCloud.model_hash: eventdata['model_hash'],
+        EventCloud.model_type: eventdata['model_type'],
+        EventCloud.detector_type: eventdata['detector_type'],
+        EventCloud.data: eventdata['data']
+    }
+    return event
 
 
 def should_update_db(prev_event: Event, current_event: Event) -> bool:
@@ -116,6 +138,9 @@ class EventProcessor(threading.Thread):
         Event.update(end_time=datetime.datetime.now().timestamp()).where(
             Event.end_time == None
         ).execute()
+        EventCloud.update(end_time=datetime.datetime.now().timestamp()).where(
+            EventCloud.end_time == None
+        ).execute()
         logger.info("Exiting event processor...")
 
     def handle_object_detection(
@@ -192,7 +217,19 @@ class EventProcessor(threading.Thread):
                 event_data["has_clip"] = True
             if self.events_in_process[event_data["id"]]["has_snapshot"]:
                 event_data["has_snapshot"] = True
-
+            event_data['model_hash'] = first_detector.model.model_hash
+            event_data['model_type'] = first_detector.model.model_type
+            event_data['camera'] = camera
+            event_data['detector_type'] = first_detector.type
+            event_data['model_type'] = first_detector.model.model_type
+            event_data['data'] = {
+                "box": box,
+                "region": region,
+                "score": score,
+                "top_score": event_data["top_score"],
+                "attributes": attributes,
+                "type": "object"
+            }
             event = {
                 Event.id: event_data["id"],
                 Event.label: event_data["label"],
@@ -215,8 +252,7 @@ class EventProcessor(threading.Thread):
                     "type": "object",
                 },
             }
-            event_data['model_type'] = first_detector.model.model_type
-            self.eventclound.send(event_data, event_config)
+            cloudevent = dict_to_model(event_data)
 
             # only overwrite the sub_label in the database if it's set
             if event_data.get("sub_label") is not None:
@@ -232,6 +268,16 @@ class EventProcessor(threading.Thread):
                 )
                 .execute()
             )
+            (
+                # on event store create json in STORAGE with event data
+                EventCloud.insert(cloudevent)
+                .on_conflict(
+                    conflict_target=[EventCloud.id],
+                    update=event,
+                )
+                .execute()
+            )
+
 
         # check if the stored event_data should be updated
         if updated_db or should_update_state(
@@ -263,15 +309,21 @@ class EventProcessor(threading.Thread):
                     "top_score": event_data["score"],
                 },
             }
+            cloudevent = dict_to_model(event_data)
             Event.insert(event).execute()
+            EventCloud.insert(event).execute()
         elif event_type == "end":
             event = {
                 Event.id: event_data["id"],
                 Event.end_time: event_data["end_time"],
             }
+            cloudevent = {
+                EventCloud.id: event_data["id"],
+                EventCloud.end_time: event_data["end_time"]
+            }
 
             try:
                 Event.update(event).where(Event.id == event_data["id"]).execute()
-                self.eventcloud.update(event_data)
+                EventCloud.update(cloudevent).where(EventCloud.id == cloudevent["id"]).execute()
             except Exception:
                 logger.warning(f"Failed to update manual event: {event_data['id']}")

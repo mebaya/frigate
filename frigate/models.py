@@ -8,7 +8,7 @@ from peewee import (
     TextField,
 )
 from playhouse.sqlite_ext import JSONField
-
+from playhouse.postgres_ext import JSONField as JSONFieldPS
 
 class Event(Model):  # type: ignore[misc]
     id = CharField(null=False, primary_key=True, max_length=30)
@@ -48,23 +48,43 @@ class Event(Model):  # type: ignore[misc]
     data = JSONField()  # ex: tracked object box, region, etc.
 
 
-class EventCloud(Model):
+class EventCloud(Event):
     id = CharField(null=False, primary_key=True, max_length=30)
-    device = CharField(max_length=30)
     label = CharField(index=True, max_length=20)
+    sub_label = CharField(max_length=100, null=True)
     camera = CharField(index=True, max_length=20)
-    path = CharField(index=True, max_length=100)
     start_time = DateTimeField()
-    end_time = DateTimeField(null=True)
-    # model data
-    model_type = CharField(max_length=32)
+    end_time = DateTimeField()
     top_score = (
         FloatField()
     )  # TODO remove when columns can be dropped without rebuilding table
     score = (
         FloatField()
     )  # TODO remove when columns can be dropped without rebuilding table
-    updated = BooleanField(default=False)
+    false_positive = BooleanField()
+    zones = JSONField()
+    thumbnail = TextField()
+    has_clip = BooleanField(default=True)
+    has_snapshot = BooleanField(default=True)
+    region = (
+        JSONField()
+    )  # TODO remove when columns can be dropped without rebuilding table
+    box = (
+        JSONField()
+    )  # TODO remove when columns can be dropped without rebuilding table
+    area = (
+        IntegerField()
+    )  # TODO remove when columns can be dropped without rebuilding table
+    retain_indefinitely = BooleanField(default=False)
+    ratio = FloatField(
+        default=1.0
+    )  # TODO remove when columns can be dropped without rebuilding table
+    plus_id = CharField(max_length=30)
+    model_hash = CharField(max_length=32)
+    detector_type = CharField(max_length=32)
+    model_type = CharField(max_length=32)
+    data = JSONFieldPS()  # ex: tracked object box, region, etc.
+
 
 class Timeline(Model):  # type: ignore[misc]
     timestamp = DateTimeField()
