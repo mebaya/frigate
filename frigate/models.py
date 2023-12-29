@@ -52,34 +52,35 @@ class EventCloud(Event):
     id = CharField(null=False, primary_key=True, max_length=30)
     label = CharField(index=True, max_length=20)
     sub_label = CharField(max_length=100, null=True)
+    device = CharField(max_length=30)
     camera = CharField(index=True, max_length=20)
     start_time = DateTimeField()
-    end_time = DateTimeField()
+    end_time = DateTimeField(null=True)
     top_score = (
-        FloatField()
+        FloatField(null=True)
     )  # TODO remove when columns can be dropped without rebuilding table
     score = (
         FloatField()
     )  # TODO remove when columns can be dropped without rebuilding table
-    false_positive = BooleanField()
+    false_positive = BooleanField(null=True)
     zones = JSONField()
-    thumbnail = TextField()
+    thumbnail = TextField(null=True)
     has_clip = BooleanField(default=True)
     has_snapshot = BooleanField(default=True)
     region = (
-        JSONField()
+        JSONField(null=True)
     )  # TODO remove when columns can be dropped without rebuilding table
     box = (
-        JSONField()
+        JSONField(null=True)
     )  # TODO remove when columns can be dropped without rebuilding table
     area = (
-        IntegerField()
+        IntegerField(null=True)
     )  # TODO remove when columns can be dropped without rebuilding table
     retain_indefinitely = BooleanField(default=False)
     ratio = FloatField(
         default=1.0
     )  # TODO remove when columns can be dropped without rebuilding table
-    plus_id = CharField(max_length=30)
+    plus_id = CharField(max_length=30, null=True)
     model_hash = CharField(max_length=32)
     detector_type = CharField(max_length=32)
     model_type = CharField(max_length=32)

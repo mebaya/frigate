@@ -21,17 +21,33 @@ class EventTypeEnum(str, Enum):
     api = "api"
     tracked_object = "tracked_object"
 
-def dict_to_model(eventdata: dict):
+
+def timestamp_to_datetime(timestamp):
+    date = None
+    if timestamp is not None:
+        date = datetime.datetime.fromtimestamp(timestamp, tz=datetime.timezone.utc)
+    return date
+
+
+def dict_to_model(eventdata: dict, device: str = "unknown") -> dict:
+    """
+    konwersja z obiektu sqlite do postgres
+    """
     try:
         zones = list(eventdata["entered_zones"])
     except:
         zones = []
+    start_time = timestamp_to_datetime(eventdata['start_time'])
+    end_time = None if eventdata is None else timestamp_to_datetime(eventdata['end_time'])
     event = {
         EventCloud.id: eventdata["id"],
+        EventCloud.score: eventdata['score'],
+        EventCloud.top_score: eventdata['top_score'],
         EventCloud.label: eventdata["label"],
         EventCloud.camera: eventdata['camera'],
-        EventCloud.start_time: eventdata['start_time'],
-        EventCloud.end_time: eventdata['end_time'],
+        EventCloud.device: device,
+        EventCloud.start_time: start_time,
+        EventCloud.end_time: end_time,
         EventCloud.zones: zones,
         EventCloud.thumbnail: eventdata["thumbnail"],
         EventCloud.has_clip: eventdata["has_clip"],
@@ -252,7 +268,7 @@ class EventProcessor(threading.Thread):
                     "type": "object",
                 },
             }
-            cloudevent = dict_to_model(event_data)
+            cloudevent = dict_to_model(event_data, device=self.config.devicename)
 
             # only overwrite the sub_label in the database if it's set
             if event_data.get("sub_label") is not None:
@@ -273,7 +289,7 @@ class EventProcessor(threading.Thread):
                 EventCloud.insert(cloudevent)
                 .on_conflict(
                     conflict_target=[EventCloud.id],
-                    update=event,
+                    update=cloudevent,
                 )
                 .execute()
             )
@@ -311,7 +327,7 @@ class EventProcessor(threading.Thread):
             }
             cloudevent = dict_to_model(event_data)
             Event.insert(event).execute()
-            EventCloud.insert(event).execute()
+            EventCloud.insert(cloudevent).execute()
         elif event_type == "end":
             event = {
                 Event.id: event_data["id"],
