@@ -1,0 +1,97 @@
+devicename:
+  rbpi1
+
+mqtt:
+  host: 192.168.1.31
+  port: 1883
+  topic_prefix: frigate
+  client_id: frigate
+  user: frigate
+  password: frigate
+
+go2rtc:
+  streams:
+    ipcamera1:
+      - rtsp://admin:Si1neHas10@192.168.1.66/1
+    ipcamera2:
+      - rtsp://admin:Si1neHas10@192.168.1.65/1
+
+cameras:
+  ipcamera1:
+    ffmpeg:
+      hwaccel_args: preset-vaapi
+      output_args:
+        record: preset-record-generic-audio-copy
+      inputs:
+        - path: rtsp://192.168.1.31:8554/ipcamera1 # <--- the name here must match the name of the camera in restream
+          input_args: preset-rtsp-restream
+          roles:
+            - record
+            - detect
+            - snapshots
+  ipcamera2:
+    ffmpeg:
+      # https://docs.frigate.video/configuration/hardware_acceleration
+      # change this depending on cpu arch
+      hwaccel_args: preset-vaapi
+      output_args:
+        record: preset-record-generic-audio-copy
+      inputs:
+        - path: rtsp://192.168.1.31:8554/ipcamera2 # <--- the name here must match the name of the camera in restream
+          input_args: preset-rtsp-restream
+          roles:
+            - record
+            - detect
+            - snapshots
+
+    
+          
+detect:
+  enabled: True
+  height: 720
+  width: 1280
+record:
+  enabled: True
+  events:
+  # Optional: Number of seconds before the event to include (default: shown below)
+    pre_capture: 5
+  # Optional: Number of seconds after the event to include (default: shown below)
+    post_capture: 10
+    # https://lightrun.com/answers/blakeblackshear-frigate-support-recording-and-event-time-mismatch
+    retain:
+      mode: all
+snapshots:
+  enabled: False
+
+logger:
+  default: info
+
+objects:
+  track:
+  - person
+  - car
+  - dog
+  - cat
+  - bird
+  - motorcycle
+  - bicycle
+  - bus
+  # Optional: mask to prevent all object types from being detected in certain areas (default: no mask)
+  # Checks based on the bottom center of the bounding box of the object.
+  # NOTE: This mask is COMBINED with the object type specific mask below
+  #mask: 0,0,1000,0,1000,200,0,200
+  # Optional: filters to reduce false positives for specific object types
+  filters:
+    person:
+      # Optional: minimum width*height of the bounding box for the detected object (default: 0)
+      #min_area: 5000
+      # Optional: maximum width*height of the bounding box for the detected object (default: 24000000)
+      #max_area: 100000
+      # Optional: minimum width/height of the bounding box for the detected object (default: 0)
+      #min_ratio: 0.5
+      # Optional: maximum width/height of the bounding box for the detected object (default: 24000000)
+      #max_ratio: 2.0
+      # Optional: minimum score for the object to initiate tracking (default: shown below)
+      #min_score: 0.5
+      # Optional: minimum decimal percentage for tracked object's computed score to be considered a true positive (default: shown below)
+      threshold: 0.75

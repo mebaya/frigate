@@ -6,6 +6,7 @@ debug
 !.vscode/launch.json
 config/*
 !config/*.example
+!config/config.yml
 models
 *.mp4
 *.ts
