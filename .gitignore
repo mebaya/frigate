@@ -7,6 +7,7 @@ debug
 config/*
 !config/*.example
 !config/config.yml
+!config/*.pass
 models
 *.mp4
 *.ts
