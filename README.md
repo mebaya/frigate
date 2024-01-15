@@ -1,5 +1,6 @@
 # Mebaya for Solid 
 
+* instalacja `docker compose` na rbpi: https://docs.docker.com/engine/install/raspberry-pi-os/
 
 run
 ```bash
