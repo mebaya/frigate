@@ -154,7 +154,7 @@ class EventProcessor(threading.Thread):
         Event.update(end_time=datetime.datetime.now().timestamp()).where(
             Event.end_time == None
         ).execute()
-        EventCloud.update(end_time=datetime.datetime.now().timestamp()).where(
+        EventCloud.update(end_time=datetime.datetime.now()).where(
             EventCloud.end_time == None
         ).execute()
         logger.info("Exiting event processor...")
@@ -334,8 +334,8 @@ class EventProcessor(threading.Thread):
                 Event.end_time: event_data["end_time"],
             }
             cloudevent = {
-                EventCloud.id: event_data["id"],
-                EventCloud.end_time: event_data["end_time"]
+                EventCloud.id: cloudevent["id"],
+                EventCloud.end_time: cloudevent["end_time"]
             }
 
             try:
