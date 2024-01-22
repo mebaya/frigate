@@ -31,8 +31,15 @@ services:
     #                     capabilities: [gpu]
     environment:
       YOLO_MODELS: yolov7-320
-    devices:
-      - /dev/bus/usb:/dev/bus/usb
+      IPCAMERA_PASSWORD: Si1neHas10
+      IPCAMERA_LOGIN: admin
+      HOST_ADDRESS: 192.168.1.31
+      POSTGES_ADDRESS: 192.168.8.124
+      POSTGRES_PORT: 5434
+      REMOTE_STORAGE_ADDRESS: 192.168.8.124
+      REMOTE_STORAGE_HOST: 9001
+      REMOTE_STORAGE_ACCESS_KEY: minioadmin
+      REMOTE_STORAGE_SECRET_KEY: minioadmin
       # - /dev/dri:/dev/dri # for intel hwaccel, needs to be updated for your hardware
     volumes:
       - .:/workspace/frigate:cached

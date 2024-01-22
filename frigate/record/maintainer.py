@@ -398,7 +398,7 @@ class RecordingMaintainer(threading.Thread):
                     logger.debug(
                         f"Copied {file_path} in {datetime.datetime.now().timestamp()-start_frame} seconds."
                     )
-                self.remote_storage.upload(file_path)
+                self.remote_storage.upload(file_path, bucket='frigate-recordings')
 
                 try:
                     # get the segment size of the cache file

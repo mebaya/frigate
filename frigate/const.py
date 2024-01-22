@@ -12,7 +12,19 @@ YAML_EXT = (".yaml", ".yml")
 FRIGATE_LOCALHOST = "http://127.0.0.1:5000"
 PLUS_ENV_VAR = "PLUS_API_KEY"
 PLUS_API_HOST = "https://api.frigate.video"
+# używane w docker compose
+MEBAYA_ENV_VARS = [
+    "IPCAMERA_LOGIN",
+    "IPCAMERA_PASSWORD",
+    "HOST_ADDRESS",
+    "POSTGES_ADDRESS",
+    "POSTGRES_PORT",
+    "REMOTE_STORAGE_ADDRESS",
+    "REMOTE_STORAGE_HOST",
+    "REMOTE_STORAGE_ACCESS_KEY",
+    "REMOTE_STORAGE_SECRET_KEY"
 
+]
 # Attribute & Object Consts
 
 ATTRIBUTE_LABEL_MAP = {

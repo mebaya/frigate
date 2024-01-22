@@ -22,6 +22,7 @@ from frigate.const import (
     MAX_PRE_CAPTURE,
     REGEX_CAMERA_NAME,
     YAML_EXT,
+    MEBAYA_ENV_VARS
 )
 from frigate.detectors import DetectorConfig, ModelConfig
 from frigate.detectors.detector_config import BaseDetectorConfig
@@ -48,7 +49,7 @@ logger = logging.getLogger(__name__)
 DEFAULT_TIME_FORMAT = "%m/%d/%Y %H:%M:%S"
 # German Style:
 # DEFAULT_TIME_FORMAT = "%d.%m.%Y %H:%M:%S"
-
+MEBAYA_VALID_ENV_VARS = {l : v for l, v in os.environ.items() if l in MEBAYA_ENV_VARS}
 FRIGATE_ENV_VARS = {k: v for k, v in os.environ.items() if k.startswith("FRIGATE_")}
 # read docker secret files as env vars too
 if os.path.isdir("/run/secrets"):

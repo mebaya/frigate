@@ -31,6 +31,8 @@ from frigate.util.image import (
     draw_timestamp,
     is_label_printable,
 )
+from frigate.mebaya.cloudstore import RemoteRecordStore
+from frigate.mebaya.settings import CloudStorageObject
 
 logger = logging.getLogger(__name__)
 
@@ -801,6 +803,7 @@ class TrackedObjectProcessor(threading.Thread):
         self.frame_manager = SharedMemoryFrameManager()
         self.last_motion_detected: dict[str, float] = {}
         self.ptz_autotracker_thread = ptz_autotracker_thread
+        self.remote_storage = RemoteRecordStore(CloudStorageObject)
 
         def start(camera, obj: TrackedObject, current_frame_time):
             self.event_queue.put(
@@ -848,12 +851,15 @@ class TrackedObjectProcessor(threading.Thread):
                 if jpg_bytes is None:
                     logger.warning(f"Unable to save snapshot for {obj.obj_data['id']}.")
                 else:
+                    """
                     with open(
                         os.path.join(CLIPS_DIR, f"{camera}-{obj.obj_data['id']}.jpg"),
                         "wb",
                     ) as j:
                         j.write(jpg_bytes)
-
+                    """
+                    snapshotname = f"{camera}/{obj.obj_data['id']}.jpg"
+                    self.remote_storage.upload(jpg_bytes, "frigate-snapshots", snapshotname)
                 # write clean snapshot if enabled
                 if snapshot_config.clean_copy:
                     png_bytes = obj.get_clean_png()
