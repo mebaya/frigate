@@ -851,15 +851,10 @@ class TrackedObjectProcessor(threading.Thread):
                 if jpg_bytes is None:
                     logger.warning(f"Unable to save snapshot for {obj.obj_data['id']}.")
                 else:
-                    """
-                    with open(
-                        os.path.join(CLIPS_DIR, f"{camera}-{obj.obj_data['id']}.jpg"),
-                        "wb",
-                    ) as j:
+                    snapshotname = os.path.join(CLIPS_DIR, f"{camera}-{obj.obj_data['id']}.jpg")
+                    with open(snapshotname, "wb") as j:
                         j.write(jpg_bytes)
-                    """
-                    snapshotname = f"{camera}/{obj.obj_data['id']}.jpg"
-                    self.remote_storage.upload(jpg_bytes, "frigate-snapshots", snapshotname)
+                    self.remote_storage.upload(snapshotname, bucket="frigate-snapshots", preffix=CLIPS_DIR)
                 # write clean snapshot if enabled
                 if snapshot_config.clean_copy:
                     png_bytes = obj.get_clean_png()

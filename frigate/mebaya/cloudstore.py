@@ -25,7 +25,9 @@ class RemoteRecordStore:
             secure=False,
             http_client=urllib3.ProxyManager(
                 f"http://{cloutauth.endpoint}",
-                timeout=urllib3.Timeout.DEFAULT_TIMEOUT)
+                timeout=urllib3.Timeout.DEFAULT_TIMEOUT,
+                maxsize=2,
+                block=True)
         )
         for bucket in cloutauth.bucket:
             found = self.client.bucket_exists(bucket)
@@ -33,21 +35,22 @@ class RemoteRecordStore:
                 self.client.make_bucket(bucket)
                 print(f"ceated bucket {bucket}")
 
-    def upload(self, recordfile: Union[str, io.BytesIO],  bucket: str, filename: Optional[str] = None):
+    def upload(self, recordfile: Union[str, io.BytesIO],  bucket: str, preffix: Optional[str] = RECORD_DIR):
         
         if bucket not in self.cloutauth.bucket:
             raise RemoteStorageError(f"invalid bucket name given: {bucket} expected one of: {self.cloutauth.bucket}")
         # plik
         if isinstance(recordfile, str):
             assert os.path.isfile(recordfile)
-            filename = recordfile.replace(RECORD_DIR, "")
-            self.client.fput_object(bucket, filename, recordfile)
-            print(
-                f"{recordfile} is successfully uploaded as object {filename} to bucket {bucket}."
-            )
+            if preffix is not None:
+                filename = recordfile.replace(preffix, "")
+                self.client.fput_object(bucket, filename, recordfile)
+            else:
+                filename = recordfile
+            print(f"{recordfile} uploaded as object {filename} to bucket {bucket}.")
         # buffer
         else:
-            self.client.put_object(bucket_name=bucket, object_name=filename, data=recordfile)
+            self.client.put_object(bucket_name=bucket, object_name=filename, data=recordfile, length=-1)
             print(f"{filename} uploaded to bucket {bucket}")
 
 if __name__ == "__main__":
