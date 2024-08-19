@@ -1,5 +1,10 @@
 ### kamerki
 
+ssh
+```bash
+ssh mebaya@192.168.8.80
+
+```
 
 run
 ```bash
