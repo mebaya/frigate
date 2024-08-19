@@ -6,7 +6,7 @@ ssh mebaya@192.168.8.80
 
 ```
 interfejsy sieciowe (po podłączeniu karty sd do kumputera) `/media/USERNAME/rootfs/etc/network/interfaces`  trzeba zakomendotwać drugi interfejs `end0`
-
+po zalogowaniu przez `ssh` trzeba odkomentować ten interface i zrobic `sudo service networking reload`
 run
 ```bash
 docker compose up -d --build
