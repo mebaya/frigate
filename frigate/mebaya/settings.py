@@ -16,3 +16,6 @@ class PGSettings:
     POSTGRES_USER: str = "mvision"
     POSTGRES_PASSWD: str = "mvisionqwerty1"
 
+class FaceID:
+    url: str = "http://192.168.8.124:8000/recognize"
+

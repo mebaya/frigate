@@ -3,6 +3,7 @@ services:
   devcontainer:
     container_name: frigate-devcontainer
     privileged: true
+    restart: unless-stopped
     # add groups from host for render, plugdev, video
     group_add:
       - "109" # render
@@ -46,7 +47,7 @@ services:
         #- ./web/dist:/opt/frigate/web:cached
       - /etc/localtime:/etc/localtime:ro
       - ./config/config.coral.yml:/config/config.yml
-      - /home/mebaya/cache:/media/frigate
+      - /mnt/usbdrive:/media/frigate
       - /dev/bus/usb:/dev/bus/usb
     #  - /home/mvision/apps/deps/go2rtc:/config/go2rtc
     #  - /home/kamil/praca/mebaya/misc/go2rtc/go2rtc:/config/go2rtc

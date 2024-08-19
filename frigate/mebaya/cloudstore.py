@@ -47,11 +47,11 @@ class RemoteRecordStore:
                 self.client.fput_object(bucket, filename, recordfile)
             else:
                 filename = recordfile
-            print(f"{recordfile} uploaded as object {filename} to bucket {bucket}.")
+            #print(f"{recordfile} uploaded as object {filename} to bucket {bucket}.")
         # buffer
         else:
             self.client.put_object(bucket_name=bucket, object_name=filename, data=recordfile, length=-1)
-            print(f"{filename} uploaded to bucket {bucket}")
+            #print(f"{filename} uploaded to bucket {bucket}")
 
 if __name__ == "__main__":
     rrs = RemoteRecordStore(CloudStorageObject)

@@ -1243,7 +1243,7 @@ def config_save():
             jsonify(
                 {
                     "success": False,
-                    "message": "Could not write config file, be sure that Frigate has write permission on the config file.",
+                    "message": "Could not write config file, be sure that Application has write permission on the config file.",
                 }
             ),
             400,
@@ -1258,7 +1258,7 @@ def config_save():
                 jsonify(
                     {
                         "success": True,
-                        "message": "Config successfully saved, unable to restart Frigate",
+                        "message": "Config successfully saved, unable to restart Application",
                     }
                 ),
                 200,

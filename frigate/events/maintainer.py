@@ -2,6 +2,7 @@ import datetime
 import logging
 import queue
 import threading
+import requests
 from enum import Enum
 from multiprocessing import Queue
 from multiprocessing.synchronize import Event as MpEvent
@@ -13,7 +14,7 @@ from frigate.types import CameraMetricsTypes
 from frigate.util.builtin import to_relative_box
 
 from frigate.mebaya import EventToCloudEvent
-
+from frigate.mebaya.settings import FaceID
 logger = logging.getLogger(__name__)
 
 
@@ -269,7 +270,10 @@ class EventProcessor(threading.Thread):
                 },
             }
             cloudevent = dict_to_model(event_data, device=self.config.devicename)
-
+            try:
+                _ = requests.post(FaceID.url, json={'eventid' : event_data['id']})
+            except Exception as e:
+                print('cannot send face', e)
             # only overwrite the sub_label in the database if it's set
             if event_data.get("sub_label") is not None:
                 event[Event.sub_label] = event_data["sub_label"][0]
@@ -293,7 +297,6 @@ class EventProcessor(threading.Thread):
                 )
                 .execute()
             )
-
 
         # check if the stored event_data should be updated
         if updated_db or should_update_state(
@@ -328,6 +331,10 @@ class EventProcessor(threading.Thread):
             cloudevent = dict_to_model(event_data)
             Event.insert(event).execute()
             EventCloud.insert(cloudevent).execute()
+            try:
+                _ = requests.post(FaceID.url, json={'eventid' : event_data['id']})
+            except Exception as e:
+                print('cannot send face', e)
         elif event_type == "end":
             event = {
                 Event.id: event_data["id"],
