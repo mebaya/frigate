@@ -1,14 +1,15 @@
 ### kamerki
 
-ssh
+ssh do rbpi `mebaya:mebaya`
 ```bash
 ssh mebaya@192.168.8.80
 ```
 
-run
+run ~/apps/frigate`
 ```bash
 docker compose up -d --build
 ```
+
 ### uwaga!
 interfejsy sieciowe (po podłączeniu karty sd do kumputera) `/media/USERNAME/rootfs/etc/network/interfaces`  trzeba zakomendotwać drugi interfejs `end0`
 po zalogowaniu przez `ssh` trzeba odkomentować ten interface i zrobic `sudo service networking reload`
