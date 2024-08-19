@@ -5,6 +5,7 @@ ssh
 ssh mebaya@192.168.8.80
 
 ```
+interfejsy sieciowe (po podłączeniu karty sd do kumputera) `/media/USERNAME/rootfs/etc/network/interfaces`  trzeba zakomendotwać drugi interfejs `end0`
 
 run
 ```bash
